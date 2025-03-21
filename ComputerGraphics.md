@@ -53,3 +53,31 @@ Computer graphics is the creation, modification and storage of models and images
 
 #### Resolution
 - Maximum no. of points that can be displayed without overlap on a CRT
+
+## Halftoning / Patterning
+- Halftoning is a technique for obtaining increased visual resolutions with a minimum number of intensity levels.
+- Rectangular grids of pixels are treated as single pixels.
+- This is how photographs are usually reproduced for magazines and books.
+- The size of the cell varies depending on the fineness of the screen and the length of exposure.
+- Halftoning reduces the overall spatial resolution of a system.
+- It is best applied when the resolution of the original scene is less than that of an output device.
+
+## Thresholding
+ - Halftoning results in the loss of spatial resolution, which is acceptable if the image is of lower resolution than the display system.
+ - Thresholding is the simplest technique for increasing the visual resolution while maintaining the spatial resolution.
+ - The thresholding technique deals with the problem where the digital image has the same resolution as our monochromatic display device but with more intensity levels.
+ - The simplest form of thresholding is to use a fixed threshold for each pixel.
+ - If the intensity exceeds the value, the pixel is drawn white, otherwise black.
+    
+```
+if I(x, y) > T then 
+    Paint pixel with white color
+else 
+    Paint pixel with dark color
+```
+where I is the intensity at (x, y) and T is the threshold value
+
+## Dithering
+- Dithering is the digital halftoning process of approximating a color that cannot be displayed with uniformly dispersed dots of other colors.
+- Ex: average dithering, Floyd-Steinberg dithering (best results), ordered dithering, etc.
+- Floyd-Steinberg technique is based on error dispersion. In error dispersion, for each point in the image, the technique finds the closest color available. The calculates the difference between the value in the image and the color you have. And then divide up these error values and distribute them over the neighboring pixels you haven't visited yet. When you get to the later pixels just add the errors distributed from the earlier ones, clip the values to the allowed range if needed, then continue as above.
